@@ -1,0 +1,546 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "aac_stay_analysis",
+  "displayName": "Stay Analysis",
+  "displayOption": "FitToPage",
+  "height": 900,
+  "width": 1600,
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#F3EEE5'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "v00000000000000000ee",
+      "target": "v00000000000000000f9",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000ee",
+      "target": "v00000000000000000fe",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000ee",
+      "target": "v0000000000000000100",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000ee",
+      "target": "v0000000000000000103",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000ee",
+      "target": "v0000000000000000105",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000ee",
+      "target": "v0000000000000000108",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000ee",
+      "target": "v000000000000000010d",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000ee",
+      "target": "v0000000000000000112",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000ee",
+      "target": "v0000000000000000114",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000ee",
+      "target": "v0000000000000000115",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000ee",
+      "target": "v0000000000000000116",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000ee",
+      "target": "v0000000000000000117",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000ee",
+      "target": "v0000000000000000118",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000ee",
+      "target": "v000000000000000011b",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000ee",
+      "target": "v000000000000000011c",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000f0",
+      "target": "v00000000000000000f9",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000f0",
+      "target": "v00000000000000000fe",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000f0",
+      "target": "v0000000000000000100",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000f0",
+      "target": "v0000000000000000103",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000f0",
+      "target": "v0000000000000000105",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000f0",
+      "target": "v0000000000000000108",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000f0",
+      "target": "v000000000000000010d",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000f0",
+      "target": "v0000000000000000112",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000f0",
+      "target": "v0000000000000000114",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000f0",
+      "target": "v0000000000000000115",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000f0",
+      "target": "v0000000000000000116",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000f0",
+      "target": "v0000000000000000117",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000f0",
+      "target": "v0000000000000000118",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000f0",
+      "target": "v000000000000000011b",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000f0",
+      "target": "v000000000000000011c",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000f2",
+      "target": "v00000000000000000f9",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000f2",
+      "target": "v00000000000000000fe",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000f2",
+      "target": "v0000000000000000100",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000f2",
+      "target": "v0000000000000000103",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000f2",
+      "target": "v0000000000000000105",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000f2",
+      "target": "v0000000000000000108",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000f2",
+      "target": "v000000000000000010d",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000f2",
+      "target": "v0000000000000000112",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000f2",
+      "target": "v0000000000000000114",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000f2",
+      "target": "v0000000000000000115",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000f2",
+      "target": "v0000000000000000116",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000f2",
+      "target": "v0000000000000000117",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000f2",
+      "target": "v0000000000000000118",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000f2",
+      "target": "v000000000000000011b",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000f2",
+      "target": "v000000000000000011c",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000f4",
+      "target": "v00000000000000000f9",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000f4",
+      "target": "v00000000000000000fe",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000f4",
+      "target": "v0000000000000000100",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000f4",
+      "target": "v0000000000000000103",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000f4",
+      "target": "v0000000000000000105",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000f4",
+      "target": "v0000000000000000108",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000f4",
+      "target": "v000000000000000010d",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000f4",
+      "target": "v0000000000000000112",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000f4",
+      "target": "v0000000000000000114",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000f4",
+      "target": "v0000000000000000115",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000f4",
+      "target": "v0000000000000000116",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000f4",
+      "target": "v0000000000000000117",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000f4",
+      "target": "v0000000000000000118",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000f4",
+      "target": "v000000000000000011b",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v00000000000000000f4",
+      "target": "v000000000000000011c",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v0000000000000000116",
+      "target": "v00000000000000000f9",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v0000000000000000116",
+      "target": "v00000000000000000fe",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v0000000000000000116",
+      "target": "v0000000000000000100",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v0000000000000000116",
+      "target": "v0000000000000000103",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v0000000000000000116",
+      "target": "v0000000000000000105",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v0000000000000000116",
+      "target": "v0000000000000000108",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v0000000000000000116",
+      "target": "v000000000000000010d",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v0000000000000000116",
+      "target": "v0000000000000000112",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v0000000000000000116",
+      "target": "v0000000000000000114",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v0000000000000000116",
+      "target": "v0000000000000000115",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v0000000000000000116",
+      "target": "v0000000000000000117",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v0000000000000000116",
+      "target": "v0000000000000000118",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v0000000000000000116",
+      "target": "v000000000000000011b",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v0000000000000000116",
+      "target": "v000000000000000011c",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v0000000000000000117",
+      "target": "v00000000000000000f9",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v0000000000000000117",
+      "target": "v00000000000000000fe",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v0000000000000000117",
+      "target": "v0000000000000000100",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v0000000000000000117",
+      "target": "v0000000000000000103",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v0000000000000000117",
+      "target": "v0000000000000000105",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v0000000000000000117",
+      "target": "v0000000000000000108",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v0000000000000000117",
+      "target": "v000000000000000010d",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v0000000000000000117",
+      "target": "v0000000000000000112",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v0000000000000000117",
+      "target": "v0000000000000000114",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v0000000000000000117",
+      "target": "v0000000000000000115",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v0000000000000000117",
+      "target": "v0000000000000000116",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v0000000000000000117",
+      "target": "v0000000000000000118",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v0000000000000000117",
+      "target": "v000000000000000011b",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v0000000000000000117",
+      "target": "v000000000000000011c",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v0000000000000000118",
+      "target": "v00000000000000000f9",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v0000000000000000118",
+      "target": "v00000000000000000fe",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v0000000000000000118",
+      "target": "v0000000000000000100",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v0000000000000000118",
+      "target": "v0000000000000000103",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v0000000000000000118",
+      "target": "v0000000000000000105",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v0000000000000000118",
+      "target": "v0000000000000000108",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v0000000000000000118",
+      "target": "v000000000000000010d",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v0000000000000000118",
+      "target": "v0000000000000000112",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v0000000000000000118",
+      "target": "v0000000000000000114",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v0000000000000000118",
+      "target": "v0000000000000000115",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v0000000000000000118",
+      "target": "v0000000000000000116",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v0000000000000000118",
+      "target": "v0000000000000000117",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v0000000000000000118",
+      "target": "v000000000000000011b",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v0000000000000000118",
+      "target": "v000000000000000011c",
+      "type": "DataFilter"
+    }
+  ]
+}

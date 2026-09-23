@@ -1,0 +1,220 @@
+table Metrics
+	lineageTag: 75f0f65f-a0f3-4d02-9c73-350c43ff6dee
+
+	/// Counts linked shelter episodes, not distinct animals. Repeated animals may have multiple episodes.
+	measure 'Total Animals' = COUNTROWS('Shelter Records')
+		formatString: #,0
+		displayFolder: Volume
+		lineageTag: e323bddb-2251-4476-9cfb-232a11c7111b
+
+	measure 'Unique Animals' = DISTINCTCOUNT('Shelter Records'[Animal ID])
+		formatString: #,0
+		displayFolder: Volume
+		lineageTag: ded81d2b-dc9f-4478-9306-f68bd976b0c7
+
+	measure Dogs = CALCULATE([Total Animals], KEEPFILTERS('Shelter Records'[Animal Type] = "Dog"))
+		formatString: #,0
+		displayFolder: Volume
+		lineageTag: ed3f358d-b2f8-4b47-af14-4e517e7d7ffe
+
+	measure Cats = CALCULATE([Total Animals], KEEPFILTERS('Shelter Records'[Animal Type] = "Cat"))
+		formatString: #,0
+		displayFolder: Volume
+		lineageTag: 1c5e1e82-2596-4561-856a-c2b22d90d471
+
+	measure 'Other Animals' = CALCULATE([Total Animals], KEEPFILTERS('Shelter Records'[Animal Type] = "Other"))
+		formatString: #,0
+		displayFolder: Volume
+		lineageTag: 159727f5-5bee-497e-a244-dd4070f5e3d3
+
+	measure Birds = CALCULATE([Total Animals], KEEPFILTERS('Shelter Records'[Animal Type] = "Bird"))
+		formatString: #,0
+		displayFolder: Volume
+		lineageTag: 271847f5-f08e-4b62-8005-800403a5222a
+
+	measure Adoptions = CALCULATE([Total Animals], KEEPFILTERS('Shelter Records'[Outcome Type] = "Adoption"))
+		formatString: #,0
+		displayFolder: Outcomes
+		lineageTag: c2069bcd-2128-4e19-9299-cc1b736c4da1
+
+	measure Transfers = CALCULATE([Total Animals], KEEPFILTERS('Shelter Records'[Outcome Type] = "Transfer"))
+		formatString: #,0
+		displayFolder: Outcomes
+		lineageTag: 5a4b66d2-3bfd-48dd-bf08-d4fd5af30be9
+
+	measure 'Return to Owner' = CALCULATE([Total Animals], KEEPFILTERS('Shelter Records'[Outcome Type] = "Return to Owner"))
+		formatString: #,0
+		displayFolder: Outcomes
+		lineageTag: 60edc080-8274-4cfd-ac71-f71770930334
+
+	measure 'Stray Intakes' = CALCULATE([Total Animals], KEEPFILTERS('Shelter Records'[Intake Type] = "Stray"))
+		formatString: #,0
+		displayFolder: Volume
+		lineageTag: b1eff658-89f4-441b-b85b-dcaefd0b9c63
+
+	measure 'Owner Surrenders' = CALCULATE([Total Animals], KEEPFILTERS('Shelter Records'[Intake Type] = "Owner Surrender"))
+		formatString: #,0
+		displayFolder: Volume
+		lineageTag: 1f13dd22-96af-48c6-9040-9a265ec0c29a
+
+	measure 'Adoption Rate' = DIVIDE([Adoptions], [Total Animals])
+		formatString: 0.0%
+		displayFolder: Shares
+		lineageTag: f57564b2-c7bf-449a-9594-23beee313c88
+
+	measure 'Dogs Share' = DIVIDE([Dogs], [Total Animals])
+		formatString: 0.0%
+		displayFolder: Shares
+		lineageTag: 77ca2622-e568-42b8-b740-c2a126b01d6a
+
+	measure 'Cats Share' = DIVIDE([Cats], [Total Animals])
+		formatString: 0.0%
+		displayFolder: Shares
+		lineageTag: 1e1205b3-1416-48d2-a804-af55acfd9e7a
+
+	measure 'Average Shelter Stay' = AVERAGE('Shelter Records'[Shelter Stay Days])
+		formatString: 0.0" days"
+		displayFolder: Shelter Stay
+		lineageTag: 1c39929e-33ac-4efd-89d3-b6416282403d
+
+	measure 'Median Shelter Stay' = MEDIAN('Shelter Records'[Shelter Stay Days])
+		formatString: 0.0" days"
+		displayFolder: Shelter Stay
+		lineageTag: e83eb6b6-43d3-4800-9a9a-7f40fe12630e
+
+	measure 'Average Stay by Outcome' = [Average Shelter Stay]
+		formatString: 0.0" days"
+		displayFolder: Shelter Stay
+		lineageTag: 768843f3-a551-41f5-a924-4d83ced12af3
+
+	measure 'Median Stay by Outcome' = [Median Shelter Stay]
+		formatString: 0.0" days"
+		displayFolder: Shelter Stay
+		lineageTag: d7552021-d90e-428b-83de-9715ac0fe541
+
+	measure 'Intake Activity' = [Total Animals]
+		formatString: #,0
+		displayFolder: Trends
+		lineageTag: 7e424e5f-60d7-49bf-ad57-5bb379869467
+
+	/// Counts linked episodes by outcome date; uses the inactive date relationship. Other record filters remain in force.
+	measure 'Outcome Activity' = CALCULATE([Total Animals], USERELATIONSHIP('Date'[Date], 'Shelter Records'[Outcome Date]))
+		formatString: #,0
+		displayFolder: Trends
+		lineageTag: ec845e9d-102f-4562-b509-a45824686ba0
+
+	/// Previous complete calendar year. Returns blank unless a single year from 2015–2017 is selected; 2013 and 2018 are partial source years.
+	measure 'Prior Period Total' =
+			VAR SelectedYear = SELECTEDVALUE('Date'[Year])
+			RETURN IF(SelectedYear >= 2015 && SelectedYear <= 2017,
+			    CALCULATE([Total Animals], REMOVEFILTERS('Date'), 'Date'[Year] = SelectedYear - 1))
+		formatString: #,0
+		displayFolder: Trends
+		lineageTag: 2d38748c-4914-42be-a481-2fed1128a463
+
+	measure 'Period-over-Period Change' = IF(NOT ISBLANK([Prior Period Total]), DIVIDE([Total Animals] - [Prior Period Total], [Prior Period Total]))
+		formatString: +0.0%;-0.0%;0.0%
+		displayFolder: Trends
+		lineageTag: 8007d84c-7b79-4496-b8c0-f9a304bdf441
+
+	measure 'Top Outcome' =
+			VAR Ranked = TOPN(1, ADDCOLUMNS(VALUES('Shelter Records'[Outcome Type]), "Volume", [Total Animals]), [Volume], DESC, 'Shelter Records'[Outcome Type], ASC)
+			RETURN IF([Total Animals] > 0, CONCATENATEX(Ranked, 'Shelter Records'[Outcome Type], ", "), "No records")
+		displayFolder: Outcomes
+		lineageTag: d61f7a61-7f40-421f-8b40-af083169e543
+
+	measure 'Top Outcome Count' = MAXX(TOPN(1, ADDCOLUMNS(VALUES('Shelter Records'[Outcome Type]), "Volume", [Total Animals]), [Volume], DESC, 'Shelter Records'[Outcome Type], ASC), [Volume])
+		formatString: #,0
+		displayFolder: Outcomes
+		lineageTag: 73e8d3b8-1b0d-427f-95b6-99115f37c0d9
+
+	measure 'Top Outcome Share' = DIVIDE([Top Outcome Count], [Total Animals])
+		formatString: 0.0%
+		displayFolder: Shares
+		lineageTag: 2f411f6e-1542-42a2-8ad8-c063c8201a50
+
+	measure 'Dogs Context' = IF([Total Animals] > 0, FORMAT(COALESCE([Dogs Share], 0), "0.0%") & " of selected records", "No records")
+		displayFolder: Presentation
+		lineageTag: 1fd73148-2c2f-45eb-b21a-4a22343edc22
+
+	measure 'Cats Context' = IF([Total Animals] > 0, FORMAT(COALESCE([Cats Share], 0), "0.0%") & " of selected records", "No records")
+		displayFolder: Presentation
+		lineageTag: 0934387e-8b82-4c77-9ede-dee856306634
+
+	measure 'Outcome Context' = IF([Total Animals] > 0, FORMAT([Top Outcome Share], "0.0%") & " of selected records", "No records")
+		displayFolder: Presentation
+		lineageTag: e1d6010c-78a0-4fc9-87be-d2137f89b1ff
+
+	measure 'Young Animals' = CALCULATE([Total Animals], KEEPFILTERS('Shelter Records'[Age Group Sort] = 1))
+		formatString: #,0
+		displayFolder: Age
+		lineageTag: 17b35a32-cb58-4a36-b565-53c2b4ae6e30
+
+	measure 'Young Share' = DIVIDE([Young Animals], [Total Animals])
+		formatString: 0.0%
+		displayFolder: Age
+		lineageTag: 31fdd1c7-8397-43ee-a470-b107e4c4290b
+
+	measure 'Austin Records' = CALCULATE([Total Animals], KEEPFILTERS('Shelter Records'[Location Area] = "Austin (TX)"))
+		formatString: #,0
+		displayFolder: Location
+		lineageTag: 62a74264-8652-49ae-ad9e-f7638abfc84d
+
+	measure 'Austin Share' = DIVIDE([Austin Records], [Total Animals])
+		formatString: 0.0%
+		displayFolder: Location
+		lineageTag: 21927f6a-80d4-4bc6-856f-9facbe7749d2
+
+	measure 'Long Stay Records' = CALCULATE([Total Animals], KEEPFILTERS('Shelter Records'[Shelter Stay Days] > 30))
+		formatString: #,0
+		displayFolder: Shelter Stay
+		lineageTag: b3e63ac7-4ebf-4e55-b70b-8b352f41ad8b
+
+	measure 'Long Stay Share' = DIVIDE([Long Stay Records], [Total Animals])
+		formatString: 0.0%
+		displayFolder: Shelter Stay
+		lineageTag: 7d9224b6-5a62-418e-bcce-5403881f13c3
+
+	measure 'Heatmap Color' =
+			VAR N = [Total Animals]
+			VAR Peak = MAXX(CROSSJOIN(ALLSELECTED('Shelter Records'[Outcome Type]), ALLSELECTED('Shelter Records'[Animal Type])), CALCULATE([Total Animals]))
+			VAR Ratio = DIVIDE(N, Peak, 0)
+			RETURN SWITCH(TRUE(), ISBLANK(N), "#FAF8F3", Ratio > 0.65, "#52755E", Ratio > 0.30, "#9AB59C", Ratio > 0.10, "#C8D6C5", "#E9EDE3")
+		displayFolder: Presentation
+		lineageTag: 2a5db202-fcee-4283-aa42-bd502bcef375
+
+	measure 'Heatmap Font Color' = IF([Heatmap Color] = "#52755E", "#FFFFFF", "#183C2E")
+		displayFolder: Presentation
+		lineageTag: 37eb8bd2-8559-4e6d-9947-205fd680837e
+
+	measure 'Insight Age' = IF([Total Animals] > 0, FORMAT(COALESCE([Young Share],0), "0.0%") & " of selected records are under 6 months at intake.", "No records match these filters.")
+		displayFolder: Insights
+		lineageTag: 0e40b281-c091-4a13-a4b2-f4fbabc16347
+
+	measure 'Insight Outcome' = IF([Total Animals] > 0, [Top Outcome] & " leads: " & FORMAT([Top Outcome Count], "#,0") & " records (" & FORMAT([Top Outcome Share], "0.0%") & ").", "No outcome records selected.")
+		displayFolder: Insights
+		lineageTag: 9d50b903-5b1e-4f0f-b01e-50aa34eae586
+
+	measure 'Insight Stay' = IF([Total Animals] > 0, "Average stay is " & FORMAT([Average Shelter Stay], "0.0") & " days; median is " & FORMAT([Median Shelter Stay], "0.0") & " days.", "No shelter stays selected.")
+		displayFolder: Insights
+		lineageTag: 6b5f0d30-50ec-41c3-aa90-63dd7642f23c
+
+	measure 'Insight Animals' = IF([Total Animals] > 0, "Dogs: " & FORMAT(COALESCE([Dogs],0), "#,0") & " · Cats: " & FORMAT(COALESCE([Cats],0), "#,0") & " in the selected intake cohort.", "No animals selected.")
+		displayFolder: Insights
+		lineageTag: 81ee47ac-734c-433c-9d5a-c6c3843c0f53
+
+	measure 'Insight Long Stay' = IF([Total Animals] > 0, FORMAT(COALESCE([Long Stay Records],0), "#,0") & " records exceed 30 days (" & FORMAT(COALESCE([Long Stay Share],0), "0.0%") & ").", "No long stays selected.")
+		displayFolder: Insights
+		lineageTag: f4f86fcc-592b-4fd2-9880-0f1a64d920a7
+
+	column _anchor
+		dataType: int64
+		isHidden
+		lineageTag: ee7abd87-767b-4e59-85bb-adfeca498940
+		summarizeBy: none
+		sourceColumn: _anchor
+
+	partition Metrics = m
+		mode: import
+		source = #table(type table [_anchor = Int64.Type], {{1}})
+

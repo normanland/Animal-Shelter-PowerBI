@@ -1,0 +1,50 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "2ed272c7217e13243b50",
+  "position": {
+    "x": 3.9074689641136966,
+    "y": 423.96038260633611,
+    "z": 86,
+    "height": 87.91805169255818,
+    "width": 80.103113764330786,
+    "tabOrder": 86
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Stay ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "color": "#ebe7e0"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "center"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Analysis",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "color": "#ebe7e0"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "center"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

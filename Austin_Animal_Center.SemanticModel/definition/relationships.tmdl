@@ -1,0 +1,9 @@
+relationship IntakeDate
+	fromColumn: 'Shelter Records'.'Intake Date'
+	toColumn: Date.Date
+
+relationship OutcomeDate
+	isActive: false
+	fromColumn: 'Shelter Records'.'Outcome Date'
+	toColumn: Date.Date
+

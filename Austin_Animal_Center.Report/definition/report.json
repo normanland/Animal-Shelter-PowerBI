@@ -1,0 +1,138 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.3.0/schema.json",
+  "themeCollection": {
+    "customTheme": {
+      "name": "AustinTheme.json",
+      "reportVersionAtImport": {
+        "visual": "2.12.0",
+        "report": "3.4.0",
+        "page": "2.3.1"
+      },
+      "type": "RegisteredResources"
+    }
+  },
+  "objects": {
+    "outspacePane": [
+      {
+        "properties": {
+          "expanded": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "resourcePackages": [
+    {
+      "name": "RegisteredResources",
+      "type": "RegisteredResources",
+      "items": [
+        {
+          "name": "austin-dog-skyline.png",
+          "path": "austin-dog-skyline.png",
+          "type": "Image"
+        },
+        {
+          "name": "AustinTheme.json",
+          "path": "AustinTheme.json",
+          "type": "CustomTheme"
+        },
+        {
+          "name": "calendar-green.svg",
+          "path": "calendar-green.svg",
+          "type": "Image"
+        },
+        {
+          "name": "calendar.svg",
+          "path": "calendar.svg",
+          "type": "Image"
+        },
+        {
+          "name": "cat.svg",
+          "path": "cat.svg",
+          "type": "Image"
+        },
+        {
+          "name": "chart-green.svg",
+          "path": "chart-green.svg",
+          "type": "Image"
+        },
+        {
+          "name": "chart-white.svg",
+          "path": "chart-white.svg",
+          "type": "Image"
+        },
+        {
+          "name": "clock-green.svg",
+          "path": "clock-green.svg",
+          "type": "Image"
+        },
+        {
+          "name": "clock-white.svg",
+          "path": "clock-white.svg",
+          "type": "Image"
+        },
+        {
+          "name": "clock.svg",
+          "path": "clock.svg",
+          "type": "Image"
+        },
+        {
+          "name": "dog-logo.svg",
+          "path": "dog-logo.svg",
+          "type": "Image"
+        },
+        {
+          "name": "dog.svg",
+          "path": "dog.svg",
+          "type": "Image"
+        },
+        {
+          "name": "heart-green.svg",
+          "path": "heart-green.svg",
+          "type": "Image"
+        },
+        {
+          "name": "heart-white.svg",
+          "path": "heart-white.svg",
+          "type": "Image"
+        },
+        {
+          "name": "heart.svg",
+          "path": "heart.svg",
+          "type": "Image"
+        },
+        {
+          "name": "home-white.svg",
+          "path": "home-white.svg",
+          "type": "Image"
+        },
+        {
+          "name": "paw-green.svg",
+          "path": "paw-green.svg",
+          "type": "Image"
+        },
+        {
+          "name": "paw.svg",
+          "path": "paw.svg",
+          "type": "Image"
+        },
+        {
+          "name": "pin-white.svg",
+          "path": "pin-white.svg",
+          "type": "Image"
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "useStylableVisualContainerHeader": true,
+    "exportDataMode": "AllowSummarized",
+    "defaultDrillFilterOtherVisuals": true,
+    "useEnhancedTooltips": false
+  }
+}

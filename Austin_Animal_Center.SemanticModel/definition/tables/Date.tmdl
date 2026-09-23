@@ -1,0 +1,52 @@
+table Date
+	lineageTag: c84f26b5-b093-4a23-9928-8f68af4194f9
+	dataCategory: Time
+
+	column Date
+		dataType: dateTime
+		isKey
+		formatString: dd mmm yyyy
+		lineageTag: 32fe926c-8c84-49eb-88d3-cfc901f2fe51
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Year
+		dataType: int64
+		lineageTag: 39c8f7de-76eb-4c06-8baf-bd395f2bb3be
+		summarizeBy: none
+		sourceColumn: Year
+
+	column 'Month Number'
+		dataType: int64
+		lineageTag: 586ee812-3210-4332-8023-6370690c6ce9
+		summarizeBy: none
+		sourceColumn: Month Number
+
+	column Month
+		dataType: string
+		lineageTag: 211357f3-65f5-4048-979f-fe33f00206f8
+		summarizeBy: none
+		sourceColumn: Month
+		sortByColumn: 'Month Number'
+
+	column 'Year Month'
+		dataType: string
+		lineageTag: ea59ad62-e2c9-4b91-8cae-ab82d3cab692
+		summarizeBy: none
+		sourceColumn: Year Month
+
+	partition Date = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromList(List.Dates(#date(2013, 1, 1), Duration.Days(#date(2019, 1, 1) - #date(2013, 1, 1)), #duration(1, 0, 0, 0)), Splitter.SplitByNothing(), {"Date"}),
+				    Typed = Table.TransformColumnTypes(Source, {{"Date", type date}}),
+				    Year = Table.AddColumn(Typed, "Year", each Date.Year([Date]), Int64.Type),
+				    MonthNo = Table.AddColumn(Year, "Month Number", each Date.Month([Date]), Int64.Type),
+				    Month = Table.AddColumn(MonthNo, "Month", each Date.ToText([Date], "MMM", "en-US"), type text),
+				    YearMonth = Table.AddColumn(Month, "Year Month", each Date.ToText([Date], "yyyy-MM", "en-US"), type text)
+				in
+				    YearMonth
+

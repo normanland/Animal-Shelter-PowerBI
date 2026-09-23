@@ -1,0 +1,36 @@
+{
+  "name": "Austin Animal Center · Editorial",
+  "dataColors": [
+    "#1F4A38",
+    "#986749",
+    "#557D62",
+    "#B0927A",
+    "#8DA98F",
+    "#CEC4B1"
+  ],
+  "background": "#F3EEE5",
+  "foreground": "#183C2E",
+  "tableAccent": "#1F4A38",
+  "textClasses": {
+    "label": {
+      "fontFace": "Segoe UI",
+      "fontSize": 10,
+      "color": "#183C2E"
+    },
+    "title": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 12,
+      "color": "#183C2E"
+    },
+    "callout": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 26,
+      "color": "#183C2E"
+    },
+    "header": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 12,
+      "color": "#183C2E"
+    }
+  }
+}

@@ -6,7 +6,7 @@ An interactive Power BI project built with Austin Animal Center data to explore 
 
 ## Project Overview
 
-The goal of this project was to turn shelter records into a clear and visually engaging report rather than a standard corporate-style dashboard.
+The goal of this project was to turn shelter records into a clear and visually engaging Power BI report rather than a standard corporate-style dashboard.
 
 The report includes dedicated pages for:
 
@@ -22,18 +22,18 @@ Interactive filters make it possible to explore the data by animal type, outcome
 
 - **Adoption was the most common outcome**, with 33,594 records.
 - **Stray animals were the largest intake group**, with 55,935 records.
-- The **average shelter stay was 16.8 days**, while the median was about **5 days**, showing the effect of longer-stay cases on the overall average.
+- The **average shelter stay was 16.8 days**, while the median was about **5 days**, showing the impact of longer-stay cases on the overall average.
 - Dogs and cats made up most of the shelter records, with **45,366 dog records** and **29,539 cat records**.
 
 ## Dashboard Features
 
-- KPI cards for the main shelter metrics
+- KPI cards for key shelter metrics
 - Breed and age-group analysis
 - Outcome analysis by animal type
 - Shelter stay analysis
 - Yearly intake and outcome trends
 - Interactive slicers and cross-filtering
-- Custom visual styling inspired by a warm, human-centered shelter theme
+- Custom visual styling with a warm, human-centered shelter theme
 
 ## Tools Used
 
@@ -56,16 +56,20 @@ The joined dataset contains **79,672 linked shelter records**.
 ```text
 Animal-Shelter-PowerBI/
 │
-├── Animal_Shelter_PowerBI.pbix
+├── Austin_Animal_Center.Report/
+├── Austin_Animal_Center.SemanticModel/
+├── .gitignore
+├── aac_intakes_outcomes.csv
+├── austin animal shelter.pbip
 ├── dashboard-preview.png
-├── data/
-│   └── aac_intakes_outcomes.csv
 └── README.md
 ```
 
+The `.pbip` file references the report and semantic model folders, so both folders are required for the project to open correctly in Power BI Desktop.
+
 ## Dashboard Preview
 
-The dashboard was designed with a soft cream background, dark green navigation, warm accent colors, and a minimal layout to keep the report easy to read while still visually distinctive.
+The dashboard uses a soft cream background, dark green navigation, warm accent colors, and a minimal layout designed to keep the report readable while still visually distinctive.
 
 ---
 

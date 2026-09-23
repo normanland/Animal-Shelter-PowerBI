@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Austin_Animal_Center"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "69e68577-0886-42f6-8492-0d9812042761"
+  }
+}
