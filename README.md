@@ -59,7 +59,6 @@ Animal-Shelter-PowerBI/
 ├── .gitignore
 ├── aac_intakes_outcomes.csv
 ├── austin animal shelter.pbip
-├── dashboard-preview.png
 └── README.md
 ```
 
