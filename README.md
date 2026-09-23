@@ -2,8 +2,6 @@
 
 An interactive Power BI project built with Austin Animal Center data to explore animal intakes, outcomes, shelter stay duration, breed patterns, age groups, and yearly trends.
 
-![Dashboard Preview](dashboard-preview.png)
-
 ## Project Overview
 
 The goal of this project was to turn shelter records into a clear and visually engaging Power BI report rather than a standard corporate-style dashboard.
